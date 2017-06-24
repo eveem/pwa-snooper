@@ -1,29 +1,48 @@
 import React, { Component } from 'react'
 import { Input } from 'antd'
+import firebase from 'firebase'
+import { connect } from 'react-firebase'
 
-class Create extends Component {
-  state = { 
-  	user_id: '',
-  	text: ''}
+firebase.initializeApp({
+  databaseURL: 'https://pwa-crossword.firebaseio.com/'
+})
 
-  onclick = () => {
-  	this.setState({ text: this.state.text })
-  }
+const Counter = ({ value, setValue }) => (
+  <div>
+    <button onClick={() => setValue(value - 1)}>-</button>
+    <span>{value}</span>
+    <button onClick={() => setValue(value + 1)}>+</button>
+  </div>
+)
+ 
+export default connect((props, ref) => ({
+  value: 'counterValue',
+  setValue: value => ref('counterValue').set(value)
+}))(Counter)
 
-  handleChange = e => {
-    this.setState({ text: e.target.value })
-    console.log(e.target.value)
-  }
+// class Create extends Component {
+//   state = { 
+//   	user_id: '',
+//   	text: ''}
 
-  render() {
-    return (
-      <div>
-        <h1>Create</h1>
-        <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
-        <button onClick={this.onclick}>click</button>
-      </div>
-    )
-  }
-}
+//   onclick = () => {
+//   	this.setState({ text: this.state.text })
+//   }
 
-export default Create
+//   handleChange = e => {
+//     this.setState({ text: e.target.value })
+//     console.log(e.target.value)
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>Create</h1>
+//         <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
+//         <button onClick={this.onclick}>click</button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default Create
