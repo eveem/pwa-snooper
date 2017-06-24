@@ -19,10 +19,14 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    this.addAuthListener()
+  }
+
+  addAuthListener = () => {
     firebase.auth().onAuthStateChanged(user => {
-     this.setState({
+      this.setState({
         redirect: user ? true : false
-     })
+      })
     })
   }
 

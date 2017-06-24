@@ -5,10 +5,10 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  padding-top: 15em;
 }
 
 .facebook {
-  margin-top: 100px;
   font-size: 16px;
   color: white;
   border: white 2px solid;
@@ -23,4 +23,8 @@ body {
 .facebook:hover {
   background: #fff;
   color: #000;
+}
+
+.card {
+  width: 50%;
 }
