@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
 import { Input } from 'antd'
 import firebase from 'firebase'
-import { connect } from 'react-firebase'
-import { uniqueId } from 'lodash'
 
 firebase.initializeApp({
-  databaseURL: 'https://pwa-crossword.firebaseio.com/'
+	databaseURL: 'https://pwa-crossword.firebaseio.com/'
 })
-
-var database = firebase.database();
 
 class Create extends Component {
   state = { 
-  	text: '',
-  	id: ''
+  	text: ''
   }
 
   writePost = (post_id, text, timestamp) => {
-  	this.state.id = uniqueId()
-  	firebase.database().ref('post/' + this.state.id).set({
-  		post_id: this.state.id,
+  	firebase.database().ref().child('post').push({
+  		post_id: firebase.database().ref().child('post').push().key,
   		text: this.state.text,
   		timestamp: firebase.database.ServerValue.TIMESTAMP
   	})
