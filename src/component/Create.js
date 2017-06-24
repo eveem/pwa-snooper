@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import { Input } from 'antd'
 import firebase from 'firebase'
 
-firebase.initializeApp({
-	databaseURL: 'https://pwa-crossword.firebaseio.com/'
-})
-
 class Create extends Component {
   state = { 
   	text: ''
