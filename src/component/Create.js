@@ -17,9 +17,14 @@ class Create extends Component {
   	})
   }
   	
+  resetInput = () => {
+  	this.setState({ text: "" })
+  }
+
   onclick = () => {
   	this.setState({ text: this.state.text })
   	this.writePost ()
+  	this.resetInput ()
   }
 
   handleChange = e => {
