@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
-import { Card } from 'antd'
+import { Card, Icon } from 'antd'
 import _ from 'lodash'
+import moment from 'moment'
 
 class Main extends Component {
   state = {
@@ -20,7 +21,7 @@ class Main extends Component {
   render() {
   	console.log(this.state.data.length)
     return (
-      <div className="Table">
+      <div className="parent">
       	{
       		_.map(this.state.data, (row, i) => 
       			{
@@ -34,8 +35,12 @@ class Main extends Component {
 }
 
 const Row = ({ send }) => (
-  <div className="row">
-    <Card>{ send.text }</Card>
+  <div className="child">
+    <Card>
+    	<div>{ send.text }</div>
+    	<div>{ moment(send.timestamp).startOf().fromNow() }</div>
+    	// <div> <Icon type="smile-o" /> </div>
+    </Card>
   </div>
 )
 
