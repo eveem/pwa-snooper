@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
+import { Card } from 'antd'
+import _ from 'lodash'
 
 class Main extends Component {
   state = {
@@ -8,20 +10,33 @@ class Main extends Component {
 
   componentDidMount() {
     firebase.database().ref().child('post').once('value', (snapshot) => {
-      this.setState({
-        data: [...this.state.data, {...snapshot.val(), key: snapshot.key}]
-      });
       console.log(snapshot.val())
+      this.setState({
+        data: snapshot.val()
+      });
     });
   }
 
   render() {
+  	console.log(this.state.data.length)
     return (
-      <div>
-        <h1>MAIN</h1>
+      <div className="Table">
+      	{
+      		_.map(this.state.data, (row, i) => 
+      			{
+      				return <Row send={row} key={i} />
+      			}
+      		) 
+      	}
       </div>
-    )
+    );
   }
 }
+
+const Row = ({ send }) => (
+  <div className="row">
+    <Card>{ send.text }</Card>
+  </div>
+)
 
 export default Main

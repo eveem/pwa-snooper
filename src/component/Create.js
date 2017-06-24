@@ -61,7 +61,7 @@ class Create extends Component {
         <Card className="card">
           <h1>CREATE</h1>
           <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
-          <Button onClick={this.onclick}>click</Button>
+          <Button onClick={this.onclick}>post</Button>
           <Button onClick={this.logOut}>logout</Button>
         </Card>
       </div>
