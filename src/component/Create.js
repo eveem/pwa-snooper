@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Input } from 'antd'
+import { Input, Card, Button  } from 'antd'
 import firebase from 'firebase'
+import { Redirect } from 'react-router-dom'
 
 class Create extends Component {
   state = { 
-  	text: ''
+  	text: '',
+    redirect: false
   }
 
   writePost = (post_id, text, timestamp) => {
@@ -25,12 +27,43 @@ class Create extends Component {
     console.log(e.target.value)
   }
 
+  logOut = async() => {
+    try {
+      await firebase.auth().signOut()
+      this.setState({
+        redirect: true
+      })
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
+  componentDidMount() {
+    this.addAuthListener()
+  }
+
+  addAuthListener = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({
+        redirect: !user ? true : false
+      })
+    })
+  }
+
   render() {
+    if (this.state.redirect) {
+      return (
+        <Redirect to='/' />
+      )
+    }
     return (
-      <div>
-        <h1>Create</h1>
-        <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
-        <button onClick={this.onclick}>click</button>
+      <div className="container">
+        <Card className="card">
+          <h1>CREATE</h1>
+          <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
+          <button onClick={this.onclick}>click</button>
+          <Button onClick={this.logOut}>logout</Button>
+        </Card>
       </div>
     )
   }

@@ -9,6 +9,8 @@ import {
   Create
 } from './component'
 import firebase from 'firebase'
+import './App.css'
+import 'antd/dist/antd.css'
 
 const config = {
   apiKey: "AIzaSyCzWysMKJnF3DJqBeNhcPR7y0DpCFRlzBQ",
@@ -24,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="App">
           <Route exact path='/' component={Login} />
           <Route path='/main' component={Main} />
           <Route path='/create' component={Create} />
