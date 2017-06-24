@@ -24,9 +24,11 @@ class Login extends Component {
 
   addAuthListener = () => {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        redirect: user ? true : false
-      })
+      if (user) {
+        this.setState({
+          redirect: true
+        })
+      }
     })
   }
 

@@ -28,28 +28,22 @@ class Create extends Component {
   }
 
   logOut = async() => {
-    try {
-      await firebase.auth().signOut()
-      this.setState({
-        redirect: true
-      })
-    } catch(e) {
-      console.log(e)
-    }
-  }
-
-  componentDidMount() {
-    this.addAuthListener()
-  }
-
-  addAuthListener = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        redirect: !user ? true : false
-      })
+    await firebase.auth().signOut()
+    this.setState({
+      redirect: true
     })
   }
 
+  componentDidMount() {
+    this.fireBaseListener = firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        this.setState({
+          redirect: true
+        })
+      }
+    })
+  }
+      
   render() {
     if (this.state.redirect) {
       return (

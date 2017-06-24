@@ -9,6 +9,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-firebase": "^2.2.6",
+    "react-resolver": "^3.1.0",
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
