@@ -37,9 +37,11 @@ class Main extends Component {
 const Row = ({ send }) => (
   <div className="child">
     <Card>
-    	<div>{ send.text }</div>
-    	<div>{ moment(send.timestamp).startOf().fromNow() }</div>
-    	// <div> <Icon type="smile-o" /> </div>
+    	<div className="top-div">{ send.text }</div>
+    	<div className="bot-div">
+			<Icon className="icon" type="star-o" />
+    		{ moment(send.timestamp).startOf().fromNow() }
+    	</div>
     </Card>
   </div>
 )
