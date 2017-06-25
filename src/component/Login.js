@@ -39,8 +39,8 @@ class Login extends Component {
       )
     }
     return (
-      <div className="container">
-        <button className="facebook" onClick={this.handleClick}>
+      <div className="loginContainer">
+        <button className="ghost facebook" onClick={this.handleClick}>
           LOGIN FACEBOOK
         </button>
       </div>

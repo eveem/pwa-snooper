@@ -51,12 +51,23 @@ class Create extends Component {
       )
     }
     return (
-      <div className="container">
-        <Card className="card">
-          <h1>CREATE</h1>
-          <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
+      <div className="createContainer">
+        <div className="top">
+        <button
+          className="ghost logout"
+          onClick={this.logOut}
+        >
+          Logout
+        </button>
+        </div>
+        <Card className="writeCard">
+          <Input 
+            type="textarea" 
+            value={this.state.text} 
+            onChange={this.handleChange} 
+            placeholder="Tell me your secret." 
+          />
           <button onClick={this.onclick}>click</button>
-          <Button onClick={this.logOut}>logout</Button>
         </Card>
       </div>
     )

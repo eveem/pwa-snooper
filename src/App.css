@@ -1,10 +1,18 @@
-.container {
+.loginContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding-top: 15em;
+  padding-top: 14em;
 }
 
-.facebook {
+.createContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.ghost {
   font-size: 16px;
   color: white;
   border: white 2px solid;
@@ -14,13 +22,30 @@
   padding: 6px 12px 6px 12px;
   cursor: pointer;
   transition: 0.3s;
+  border-radius: 5px;
 }
 
-.facebook:hover {
+.ghost:hover {
   background: #fff;
   color: #000;
 }
 
-.card {
-  width: 50%;
+.logout {
+  max-width: 6em;
+  margin-right: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  opacity: 1.5;
+}
+.top {
+  text-align: right;
+  background: rgba(0,0,0, 0.5);
+}
+.writeCard {
+  overflow: hidden;
+  margin-top: 15em;
+  min-height: 220px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
