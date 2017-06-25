@@ -8,7 +8,7 @@ import TopBar from './TopBar'
 
 class Main extends Component {
   state = {
-    data: [],
+    data: null,
   }
 
   likeLog = (like_id, timestamp) => {
@@ -34,15 +34,17 @@ class Main extends Component {
     return (
       <div>
         <TopBar path="main" />
-        <div className="parent">
-      	{
-      		_.map(this.state.data, (row, i) => 
-      			{
-      				return <Row send={row} key={i} />
-      			}
-      		) 
-      	}
-        </div>
+        {
+          <div className="parent">
+            {
+              _.map(this.state.data, (row, i) => 
+                {
+                  return <Row send={row} key={i} />
+                }
+              ) 
+            }
+          </div>
+        }
       </div>
     );
   }
