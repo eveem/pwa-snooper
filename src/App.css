@@ -94,3 +94,18 @@
   display: flex;
   justify-content: center;
 }
+
+.tag {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag div {
+  display: flex;
+  margin-right: 1em;
+}
+
+.tag div p {
+  margin-left: 5px;
+}
+
