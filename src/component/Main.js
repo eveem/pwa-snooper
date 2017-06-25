@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
-import { Card, Icon, Button } from 'antd'
+import { Card, Icon } from 'antd'
 import _ from 'lodash'
 import moment from 'moment'
 // import { connect } from 'react-firebase'
@@ -57,7 +57,7 @@ const Row = ({ send }) => (
     <Card>
     	<div className="top-div">{ send.text }</div>
     	<div className="bot-div">
-			<Button onClick={this.onclick}/>
+			<Icon onClick={this.onclick} type="star-o" className="icon"/>
     		{ moment(send.timestamp).startOf().fromNow() }
     	</div>
     </Card>
