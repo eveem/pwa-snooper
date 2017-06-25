@@ -24,9 +24,11 @@ class Login extends Component {
 
   addAuthListener = () => {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        redirect: user ? true : false
-      })
+      if (user) {
+        this.setState({
+          redirect: true
+        })
+      }
     })
   }
 
@@ -37,8 +39,8 @@ class Login extends Component {
       )
     }
     return (
-      <div className="container">
-        <button className="facebook" onClick={this.handleClick}>
+      <div className="loginContainer">
+        <button className="ghost facebook" onClick={this.handleClick}>
           LOGIN FACEBOOK
         </button>
       </div>

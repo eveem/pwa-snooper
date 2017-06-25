@@ -33,28 +33,22 @@ class Create extends Component {
   }
 
   logOut = async() => {
-    try {
-      await firebase.auth().signOut()
-      this.setState({
-        redirect: true
-      })
-    } catch(e) {
-      console.log(e)
-    }
-  }
-
-  componentDidMount() {
-    this.addAuthListener()
-  }
-
-  addAuthListener = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        redirect: !user ? true : false
-      })
+    await firebase.auth().signOut()
+    this.setState({
+      redirect: true
     })
   }
 
+  componentDidMount() {
+    this.fireBaseListener = firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        this.setState({
+          redirect: true
+        })
+      }
+    })
+  }
+      
   render() {
     if (this.state.redirect) {
       return (
@@ -62,12 +56,19 @@ class Create extends Component {
       )
     }
     return (
-      <div className="container">
-        <Card className="card">
-          <h1>CREATE</h1>
-          <Input type="textarea" value={this.state.text} onChange={this.handleChange} placeholder="Tell me your secret." />
+      <div className="createContainer">
+        <div className="top">
+          <button className="ghost read">READ CONTENT</button>
+          <button className="ghost logout" onClick={this.logOut}>Logout</button>
+        </div>
+        <Card className="writeCard">
+          <Input 
+            type="textarea" 
+            value={this.state.text} 
+            onChange={this.handleChange} 
+            placeholder="Tell me your secret." 
+          />
           <Button onClick={this.onclick}>post</Button>
-          <Button onClick={this.logOut}>logout</Button>
         </Card>
       </div>
     )

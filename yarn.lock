@@ -3133,7 +3133,7 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -3851,6 +3851,10 @@ latest-version@^2.0.0:
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-2.0.0.tgz#56f8d6139620847b8017f8f1f4d78e211324168b"
   dependencies:
     package-json "^2.0.0"
+
+lato-font@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/lato-font/-/lato-font-3.0.0.tgz#91b837e2374b668fb7331d44c894d37a2d9f8e11"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
@@ -5415,6 +5419,13 @@ react-error-overlay@^1.0.7:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
+react-firebase@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/react-firebase/-/react-firebase-2.2.6.tgz#f50981ea5a6e5396d148c8e67f563900427333b1"
+  dependencies:
+    invariant "^2.0.0"
+    prop-types "^15.5.8"
+
 react-lazy-load@^3.0.10:
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/react-lazy-load/-/react-lazy-load-3.0.12.tgz#2b841dfc3227e8119d033189d2c960ce384d0cb9"
@@ -5423,6 +5434,10 @@ react-lazy-load@^3.0.10:
     lodash.debounce "^4.0.0"
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
+
+react-resolver@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-resolver/-/react-resolver-3.1.0.tgz#b999fb361c6d1ea49868faf0086615b2ac475bf8"
 
 react-router-dom@^4.1.1:
   version "4.1.1"
@@ -5466,10 +5481,6 @@ react@^15.6.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
-
-reactfire@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/reactfire/-/reactfire-1.0.0.tgz#d62a6c0d854bae9fd1eee4f9c4128682fc35ff21"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
