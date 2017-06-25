@@ -7,7 +7,8 @@ import _ from 'lodash'
 
 export default class Profile extends Component {
   state = {
-    data: {}
+    data: {},
+    loading: true
   }
 
   componentDidMount() {
@@ -15,7 +16,8 @@ export default class Profile extends Component {
       firebase.database().ref().child('post').once('value', (snapshot) => {
         this.setState({
           data: snapshot.val(),
-          user: user.uid
+          user: user.uid,
+          loading: false
         });
       });
     })
@@ -26,7 +28,7 @@ export default class Profile extends Component {
       <div>
         <TopBar path="profile" />
         <div className="profileContainer">
-          <Card className="timeline">
+          <Card className="timeline" loading={this.state.loading}>
             {
                 _.map(this.state.data, post => 
                   post.created_by === this.state.user ?

@@ -95,6 +95,7 @@
 
 .timeline {
   max-width: 900px;
+  min-width: 400px;
 }
 
 .profileContainer {
