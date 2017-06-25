@@ -6,7 +6,8 @@ import {
 import {
   Login,
   Main,
-  Create
+  Create,
+  Profile
 } from './component'
 import firebase from 'firebase'
 import './App.css'
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path='/' component={Login} />
           <Route path='/main' component={Main} />
           <Route path='/create' component={Create} />
+          <Route path='/profile' component={Profile} />
         </div>
       </Router>
     );

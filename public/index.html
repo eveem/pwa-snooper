@@ -39,6 +39,30 @@
       .App-intro {
         font-size: large;
       }
+      .ghost {
+        font-size: 16px;
+        color: white;
+        border: white 2px solid;
+        outline: none;
+        text-decoration: none;
+        background: none;
+        padding: 6px 12px 6px 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      .top {
+        text-align: right;
+        background: rgba(0,0,0, 0.5);
+      }
+      .logout {
+        max-width: 6em;
+        margin-right: 2em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        opacity: 1.5;
+      }
       h1 {
         font-family: Lato;
         font-weight: 900;
@@ -56,9 +80,11 @@
     </noscript>
     <div id="root">
       <div class="App">
-        <p class="App-intro">
-          Loading site...
-        </p>
+        <div class="top">
+          <button class="ghost">READ CONTENT</button>
+          <button class="ghost">WRITE CONTENT</button>
+          <button class="ghost logout">Logout</button>
+        </div>
       </div>
     <script>
       if ('serviceWorker' in navigator) {

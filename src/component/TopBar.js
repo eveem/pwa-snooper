@@ -38,7 +38,7 @@ class TopBar extends Component {
             path !== 'main' && 
             <Link to='/main'>
               <button className="ghost read">
-                READ CONTENT
+                READ 
               </button> 
             </Link>
           }
@@ -46,7 +46,7 @@ class TopBar extends Component {
             path !== 'create' && 
             <Link to='/create'>
               <button className="ghost read">
-                  WRITE CONTENT
+                  WRITE
               </button>
             </Link>
           }
@@ -54,7 +54,7 @@ class TopBar extends Component {
             path !== 'profile' && 
             <Link to='/profile'>
               <button className="ghost read">
-                YOUR CONTENT
+                PROFILE
               </button> 
             </Link>
           }

@@ -84,3 +84,13 @@
 
 .read {
 }
+
+.timeline {
+  max-width: 900px;
+}
+
+.profileContainer {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}

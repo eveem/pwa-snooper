@@ -12,7 +12,6 @@ class Main extends Component {
 
   componentDidMount() {
     firebase.database().ref().child('post').once('value', (snapshot) => {
-      console.log(snapshot.val())
       this.setState({
         data: snapshot.val()
       });
