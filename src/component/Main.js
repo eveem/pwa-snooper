@@ -21,7 +21,12 @@ class Main extends Component {
   render() {
   	console.log(this.state.data.length)
     return (
-      <div className="parent">
+      <div>
+        <div className="top">
+          <button className="ghost read">WRITE CONTENT</button>
+          <button className="ghost logout" onClick={this.logOut}>Logout</button>
+        </div>
+        <div className="parent">
       	{
       		_.map(this.state.data, (row, i) => 
       			{
@@ -29,6 +34,7 @@ class Main extends Component {
       			}
       		) 
       	}
+        </div>
       </div>
     );
   }

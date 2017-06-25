@@ -58,12 +58,8 @@ class Create extends Component {
     return (
       <div className="createContainer">
         <div className="top">
-        <button
-          className="ghost logout"
-          onClick={this.logOut}
-        >
-          Logout
-        </button>
+          <button className="ghost read">READ CONTENT</button>
+          <button className="ghost logout" onClick={this.logOut}>Logout</button>
         </div>
         <Card className="writeCard">
           <Input 
