@@ -32,14 +32,15 @@ body {
 .parent {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 .child {
   padding: 5px 10px 5px 10px;
   width: 300px; 
   height: 40px;
-  margin: auto; 
-  margin-top: 90px;
+  margin: auto;
+  margin-top: 100px;
 }
 
 .top-div {
@@ -56,4 +57,8 @@ body {
 
 .bot-div .icon {
   padding-top: 4px;
+}
+
+.icon:hover {
+  color: #000000;
 }
