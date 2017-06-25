@@ -23,6 +23,7 @@
   cursor: pointer;
   transition: 0.3s;
   border-radius: 5px;
+  margin-left: 10px;
 }
 
 .ghost:hover {
@@ -82,5 +83,4 @@
 }
 
 .read {
-  margin-right: 1em;
 }
