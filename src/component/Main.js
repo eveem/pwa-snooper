@@ -4,10 +4,22 @@ import { Card, Icon } from 'antd'
 import _ from 'lodash'
 import moment from 'moment'
 import TopBar from './TopBar'
+// import { connect } from 'react-firebase'
 
 class Main extends Component {
   state = {
-    data: []
+    data: [],
+  }
+
+  likeLog = (like_id, timestamp) => {
+  	firebase.database().ref().child('post').push({
+  		like_id: firebase.database().ref().child('post').push().key,
+  		timestamp: firebase.database.ServerValue.TIMESTAMP
+  	})
+  }
+
+  onclick = () => {
+  	this.likeLog ()
   }
 
   componentDidMount() {
@@ -41,7 +53,7 @@ const Row = ({ send }) => (
     <Card>
     	<div className="top-div">{ send.text }</div>
     	<div className="bot-div">
-			<Icon className="icon" type="star-o" />
+			<Icon onClick={this.onclick} type="star-o" className="icon"/>
     		{ moment(send.timestamp).startOf().fromNow() }
     	</div>
     </Card>
