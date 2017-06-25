@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Input, Card, Button  } from 'antd'
 import firebase from 'firebase'
 import { Redirect } from 'react-router-dom'
+import TopBar from './TopBar'
 
 class Create extends Component {
   state = { 
-  	text: '',
-    redirect: false
+  	text: ''
   }
 
   writePost = (post_id, text, timestamp) => {
@@ -31,36 +31,11 @@ class Create extends Component {
     this.setState({ text: e.target.value })
     console.log(e.target.value)
   }
-
-  logOut = async() => {
-    await firebase.auth().signOut()
-    this.setState({
-      redirect: true
-    })
-  }
-
-  componentDidMount() {
-    this.fireBaseListener = firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        this.setState({
-          redirect: true
-        })
-      }
-    })
-  }
       
   render() {
-    if (this.state.redirect) {
-      return (
-        <Redirect to='/' />
-      )
-    }
     return (
       <div className="createContainer">
-        <div className="top">
-          <button className="ghost read">READ CONTENT</button>
-          <button className="ghost logout" onClick={this.logOut}>Logout</button>
-        </div>
+        <TopBar path="create" />
         <Card className="writeCard">
           <Input 
             type="textarea" 

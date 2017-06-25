@@ -3,6 +3,7 @@ import firebase from 'firebase'
 import { Card, Icon } from 'antd'
 import _ from 'lodash'
 import moment from 'moment'
+import TopBar from './TopBar'
 
 class Main extends Component {
   state = {
@@ -22,10 +23,7 @@ class Main extends Component {
   	console.log(this.state.data.length)
     return (
       <div>
-        <div className="top">
-          <button className="ghost read">WRITE CONTENT</button>
-          <button className="ghost logout" onClick={this.logOut}>Logout</button>
-        </div>
+        <TopBar path="main" />
         <div className="parent">
       	{
       		_.map(this.state.data, (row, i) => 
