@@ -10,11 +10,15 @@ class Create extends Component {
   }
 
   writePost = (post_id, text, timestamp) => {
-  	firebase.database().ref().child('post').push({
-  		post_id: firebase.database().ref().child('post').push().key,
-  		text: this.state.text,
-  		timestamp: firebase.database.ServerValue.TIMESTAMP
-  	})
+
+    firebase.auth().onAuthStateChanged(user => {
+      firebase.database().ref().child('post').push({
+        post_id: firebase.database().ref().child('post').push().key,
+        text: this.state.text,
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        created_by: user.uid,
+      })
+    })
   }
   	
   resetInput = () => {
@@ -29,7 +33,6 @@ class Create extends Component {
 
   handleChange = e => {
     this.setState({ text: e.target.value })
-    console.log(e.target.value)
   }
       
   render() {
